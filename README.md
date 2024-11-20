@@ -39,3 +39,4 @@ Whether you're a lawyer, paralegal, or student, **LawSage.AI** is your partner i
 ---
 
 ## **📂 Folder Structure**
+LawSage.AI/ ├── backend/ # Backend logic and APIs ├── frontend/ # User interface │ ├── static/ # Static assets (CSS, JS) │ ├── templates/ # HTML templates ├── models/ # Pretrained AI models ├── data/ # Training datasets └── README.md # Project overview
