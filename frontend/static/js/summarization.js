@@ -6,7 +6,6 @@ document.getElementById('simplify-summary-btn')?.addEventListener('click', () =>
         return;
     }
 
-    // Send the summary text to the server to get the simplified version
     fetch('/simplify-summary', {
         method: 'POST',
         headers: {
@@ -17,7 +16,6 @@ document.getElementById('simplify-summary-btn')?.addEventListener('click', () =>
     .then((response) => response.json())
     .then((data) => {
         if (data.simplified_summary) {
-            // Insert the simplified summary into the DOM without reloading the page
             const simplifiedSummaryBox = document.getElementById('simplified-summary');
             simplifiedSummaryBox.innerHTML = `
                 <h3>Simplified Summary</h3>

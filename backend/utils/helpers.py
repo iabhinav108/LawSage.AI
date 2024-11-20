@@ -9,20 +9,12 @@ import torch.nn.functional as F
 import torch
 
 def get_root_path():
-    '''
-    function to get root path of dataset
-
-    change the path variable to the path of the dataset
-    '''
-    path = "/home/pahelibhattacharya/Abhayv2/camera_ready/summarization/dataset"
+    
+    path = "  "
     return path
 
 def get_summary_data(dataset, train):
-    '''
-    function to get names, documents, and summaries
-
-    change the path variable to the path of the dataset
-    '''
+    
     if dataset == "N2":
         path = get_root_path() + '/N2/Full-Text/India'
         all_files = glob.glob(path + "/*.txt")
@@ -60,12 +52,8 @@ def get_summary_data(dataset, train):
     return names, data_source, data_summary
 
 def get_summary_data_rhet_train(dataset):
-    '''
-    function to get names, documents, and summaries for Rhetorical labeled documents - train
-
-    change the path variable to the path of the Rhetorical labeled dataset
-    '''
-    path = get_root_path() + '/rhet/' + dataset.lower() + '_ft_rhet' # use your path
+    
+    path = get_root_path() + '/rhet/' + dataset.lower() + '_ft_rhet' 
     all_files = glob.glob(path + "/*.txt")
 
     data_source = []
@@ -77,7 +65,7 @@ def get_summary_data_rhet_train(dataset):
             a = f.read()
             data_source.append(a)
 
-    path = get_root_path() + '/rhet/RhetSumm_Dataset/raw_files/'+ dataset +'/summary' # use your path
+    path = get_root_path() + '/rhet/RhetSumm_Dataset/raw_files/'+ dataset +'/summary' 
     all_files = glob.glob(path + "/*.txt")
 
     data_summary = {}
@@ -90,12 +78,8 @@ def get_summary_data_rhet_train(dataset):
     return names, data_source, data_summary
 
 def get_summary_data_rhet_test(dataset):
-    '''
-    function to get names, documents, and summaries for Rhetorical labeled documents - test
-
-    change the path variable to the path of the Rhetorical labeled dataset
-    '''
-    path = get_root_path() + '/rhet/RhetSumm_Dataset/rhet/' + dataset + "/" # use your path
+    
+    path = get_root_path() + '/rhet/RhetSumm_Dataset/rhet/' + dataset + "/"
     all_files = glob.glob(path + "/*.txt")
 
     data_source = []
@@ -112,11 +96,6 @@ def get_summary_data_rhet_test(dataset):
 
 
 def get_req_len_dict(dataset, istrain):
-    '''
-    function to required length data for each summary
-
-    change the path variable to the path to Summary_Length_India.txt/ Summary_Length_Uk.txt file
-    '''
     
     if dataset == "N2":
         f = open(get_root_path() + "/N2/Summary_Length_India.txt", "r")
@@ -146,12 +125,7 @@ def split_to_sentences(para):
     return sents
 
 def nest_sentencesV2(document,chunk_length):
-    '''
-    function to chunk a document
-    input:  document           - Input document
-            chunk_length        - chunk length
-    output: list of chunks. Each chunk is a list of sentences.
-    '''
+    
     nested = []
     sent = []
     length = 0
@@ -169,16 +143,10 @@ def nest_sentencesV2(document,chunk_length):
     return nested
 
 def nest_sentencesMV2(document_sents,chunk_length):
-    '''
-    function to chunk a document
-    input:  doc_sents           - Input document sentences
-            chunk_length        - chunk length
-    output: list of chunks. Each chunk is a list of sentences.
-    '''
+    
     nested = []
     sent = []
     length = 0
-    #modeified v2
     
     for sentence in document_sents:
         length += len((sentence.split(" ")))
@@ -194,12 +162,7 @@ def nest_sentencesMV2(document_sents,chunk_length):
     return nested
 
 def nest_sentences(document,chunk_length):
-    '''
-    function to chunk a document
-    input:  document           - Input document
-            chunk_length        - chunk length
-    output: list of chunks. Each chunk is a string.
-    '''
+    
     nested = []
     sent = []
     length = 0
@@ -218,13 +181,7 @@ def nest_sentences(document,chunk_length):
   
 
 def nest_sentencesV3(doc_sents,chunk_length, dict_sents_labels):
-    '''
-    function to first segment the document using rhetorical roles and then chunk if required
-    input:  doc_sents           - Input document sentences
-            chunk_length        - chunk length
-            dict_sents_labels   - dictionary for every sentence and label
-    output: list of chunks
-    '''
+    
     s = list(set(dict_sents_labels.values()))
 #     print(s)
     all_chunks = []
@@ -246,10 +203,7 @@ def nest_sentencesV3(doc_sents,chunk_length, dict_sents_labels):
     return all_chunks   
 
 def get_doc_sens_and_labels(doc):
-    '''
-    Function to read a Rhetorically labeled document.
-    returns a list of sentences, the label of each sentence, dictionary: keys-sentences, values-labels
-    '''
+    
     sents = []
     labels = []
     dict_sents_labels = {}

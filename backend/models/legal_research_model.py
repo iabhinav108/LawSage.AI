@@ -9,7 +9,6 @@ logging.basicConfig(level=logging.INFO)
 device = "cuda" if torch.cuda.is_available() else "cpu"
 logging.info(f"Using device: {device}")
 
-# Load tokenizer and model
 tokenizer = AutoTokenizer.from_pretrained(
     "microsoft/Phi-3.5-mini-instruct",
     truncation=True
@@ -40,26 +39,16 @@ except Exception as e:
     logging.error(f"Error creating pipeline: {e}")
 
 def determine_max_tokens(prompt):
-    """
-    Determine max tokens for response based on the prompt length.
-    A longer prompt gets a larger output token budget.
-    """
-    # Heuristic: 3 tokens per word in the prompt + a base minimum of 100
     num_words = len(prompt.split())
-    max_tokens = min(1000, max(150, 3 * num_words))  # Cap the maximum tokens to 1000
+    max_tokens = min(1000, max(150, 3 * num_words))
     return max_tokens
 
 def is_sentence_complete(text):
-    """
-    Check if the last sentence in the text is complete.
-    A complete sentence usually ends with a period, question mark, or exclamation point.
-    """
     return bool(re.search(r'[.!?]["\']?\s*$', text))
 
 def ask_legal_question(prompt):
     logging.info(f"Received prompt: {prompt}")
     
-    # Determine max tokens dynamically based on the prompt length
     max_new_tokens = determine_max_tokens(prompt)
 
     if not legal_assistant:
@@ -75,9 +64,7 @@ def ask_legal_question(prompt):
         )
         generated_text = response[0]['generated_text']
 
-        # Ensure the last sentence is completed
         while not is_sentence_complete(generated_text) and len(generated_text.split()) < max_new_tokens:
-            # Extend by 50 more tokens if the sentence isn't complete
             additional_response = legal_assistant(
                 generated_text,
                 num_return_sequences=1,

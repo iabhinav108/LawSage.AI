@@ -12,11 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function sendMessage() {
         const message = userInput.value.trim();
         if (message === '') return;
-
-        // Display the user's message
         addMessage(message, 'user');
 
-        // Send the input to the backend
         fetch('/chat', {
             method: 'POST',
             headers: {
@@ -33,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
-            // Display the AI response
             addMessage(data.response, 'ai');
         })
         .catch(error => {
@@ -41,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
             addMessage('Sorry, there was an error processing your request.', 'ai');
         })
         .finally(() => {
-            // Clear input field
             userInput.value = '';
         });
     }
