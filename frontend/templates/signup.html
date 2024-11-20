@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+<body>
+    <form class="form" method="POST" action="{{ url_for('signup') }}">
+        <p class="title">Register</p>
+        <p class="message">Signup now and get full access to our app.</p>
+        
+        <div class="flex">
+            <label>
+                <input required type="text" name="username" class="input" placeholder="">
+                <span>User Name</span>
+            </label>
+        </div>
+
+        <label>
+            <input required type="email" name="email" class="input" placeholder="">
+            <span>Email</span>
+        </label> 
+
+        <label>
+            <input required type="password" name="password" class="input" placeholder="">
+            <span>Password</span>
+        </label>
+
+        <label>
+            <input required type="password" name="confirm_password" class="input" placeholder="">
+            <span>Confirm Password</span>
+        </label>
+
+        <button type="submit" class="submit">Submit</button>
+        <p class="signin">Already have an account? <a href="{{ url_for('login') }}">Signin</a></p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawSage Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="LawSage Logo">
+            <a href="{{ url_for('home') }}" class="logo-text">LawSage.AI</a>
+        </div>
+        <div class="header-right">
+            <img src="{{ url_for('static', filename='assets/user.png') }}" alt="User Icon" class="user-icon">
+            <button class="logout-btn" onclick="window.location.href='{{ url_for('home') }}'">Logout</button>
+        </div>
+    </header>
+
+    <div class="chat-container">
+        <div class="chat-sidebar">
+            <h3>Your Chats</h3>
+            <ul class="chat-list">
+                {% for chat in previous_chats %}
+                    <li class="chat-item" onclick="loadChat('{{ chat.title }}')">{{ chat.title }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="chat-content">
+            <div class="chat-messages">
+                <div class="message ai-message">Welcome to the LawSage Chat!</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" class="input-field" placeholder="Type your question here...">
+                <button class="send-button" id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/research_assistant.js') }}"></script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 LawSage. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

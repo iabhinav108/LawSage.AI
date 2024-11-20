@@ -1,0 +1,226 @@
+/* Global styles */
+body {
+    font-family: 'Neue Haas Grotesk Display', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+header .logo img {
+    width: 50px;
+}
+
+header .logo-text {
+    font-size: 1.5em;
+    color: #333;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+header .header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header .logout-btn {
+    background-color: #ddd;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+header .user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+main {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.intro-section h1, .intro-section h2, .intro-section h3 {
+    color: #333;
+}
+
+.intro-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.intro-section ul li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+.upload-section h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.upload-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.document-display {
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    text-align: left;
+}
+
+.text-section {
+    flex: 1;
+    min-width: 45%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.text-section h3 {
+    margin-top: 0;
+    color: #7e57c2;
+}
+
+.text-section p {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+#simplified-summary {
+    display: none;
+}
+
+/* Style for showing simplified summary */
+#simplified-summary h3 {
+    color: #7e57c2;
+}
+
+#simplified-summary p {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.simplify-btn {
+    background-color: #7e57c2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.upload-btn {
+    background-color: #7e57c2;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.txt-upload {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button:focus .rect {
+    stroke-dasharray: 50;
+}
+.button:focus .border {
+    stroke: #0000;
+}
+
+.button:focus .txt-upload {
+    opacity: 0;
+    transition: opacity 0.25s 8s;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    stroke: #0055d4;
+    stroke-width: 2px;
+    fill: none;
+    border-radius: 1em;
+    stroke-dasharray: 25;
+    animation: 1.25s linear infinite stroke-dashoffset;
+    transition: fill 0.25s;
+}
+
+@keyframes stroke-dashoffset {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.done-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    animation: 1.25s forwards done-svg-animation;
+}
+
+@keyframes done-svg-animation {
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/summary.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Neue+Haas+Grotesk+Display:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="LawSage Logo">
+            <a href="{{ url_for('home') }}" class="logo-text">LawSage.AI</a>
+        </div>
+        <div class="header-right">
+            <!-- User Icon (Replaced with custom image) -->
+            <img src="{{ url_for('static', filename='assets/user.png') }}" alt="User Icon" class="user-icon">
+            <button class="logout-btn" onclick="window.location.href='{{ url_for('home') }}'">Logout</button>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <section class="intro-section">
+            <h1>LawSage.AI: Your Legal Ally</h1>
+            <h2>Unraveling Legal Complexity</h2>
+            <p>LawSage.AI is your go-to tool for simplifying complex legal documents. Our AI-powered technology breaks down legalese into plain English, saving you time and effort.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Instant Summarization: Quickly grasp the key points of any legal document.</li>
+                <li>Plain Language Explanations: Understand legal jargon without the confusion.</li>
+                <li>User-Friendly Interface: Easily navigate and utilize our tool.</li>
+            </ul>
+            <h3>Why Choose LawSage.AI?</h3>
+            <ul>
+                <li>Save Time: Efficiently analyze legal documents.</li>
+                <li>Gain Clarity: Understand complex legal concepts.</li>
+                <li>Empower Yourself: Make informed decisions.</li>
+            </ul>
+            <p>Experience the future of legal understanding. Try LawSage.AI today!</p>
+        </section>
+
+        <section class="upload-section">
+            <h1>Upload Your Legal Document</h1>
+            <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".pdf" required class="file-input">
+                <button class="upload-btn" type="submit">Upload</button>
+            </form>
+        </section>
+
+        <section class="document-display">
+            <h2>Document Analysis</h2>
+            {% if error %}
+                <div class="error-message">
+                    <p style="color: red;">{{ error }}</p>
+                </div>
+            {% endif %}
+
+            <div class="content-container">
+                <div class="text-section">
+                    <h3>Extracted Text</h3>
+                    <p>{{ extracted_text }}</p>
+                </div>
+                <div class="text-section">
+                    <h3>Generated Summary</h3>
+                    <p id="summary-text">{{ summary_text }}</p>
+                    {% if summary_text %}
+                    <div id="simplify-summary-section">
+                        <p>Would you like a more simplified summary?</p>
+                        <button class="simplify-btn" id="simplify-summary-btn">Simplify Further</button>
+                    </div>
+                    {% endif %}
+                </div>
+                <div id="simplified-summary" class="text-section">
+                    {% if simplified_summary %}
+                        <h3>Simplified Summary</h3>
+                        <p>{{ simplified_summary }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/summarization.js') }}"></script>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 LawSage. All rights reserved.</p>
+    </footer>
+</body>
+</html>
