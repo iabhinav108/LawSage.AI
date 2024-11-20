@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 from services.document_processing.pdf_extractor import extract_pdf_text
 from models.legal_research_model import ask_legal_question
 from services.summarization.summarizer_service import summarize_text
-from services.simplification.simplifier_service import simplify_summary  # Import the simplifier service
+from services.simplification.simplifier_service import simplify_summary
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
@@ -14,11 +14,9 @@ app = Flask(__name__, template_folder='../frontend/templates', static_folder='..
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['ALLOWED_EXTENSIONS'] = {'pdf'}
 
-# MySQL database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:mypassword@127.0.0.1:3306/newdb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Generate and set a secret key for your application
 app.config['SECRET_KEY'] = 'acc82c31a1412e564cb11b5b45af32c7c7d7b1892d5d1063'
 
 db = SQLAlchemy(app)
@@ -29,7 +27,6 @@ login_manager.login_view = 'login'
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-# Define User and ChatHistory models
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
@@ -50,11 +47,9 @@ class ChatHistory(db.Model):
     def __repr__(self):
         return f'<ChatHistory {self.id}>'
 
-# Create the database tables
 with app.app_context():
     db.create_all()
 
-# Allowed file function
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
@@ -104,17 +99,14 @@ def chat():
     if request.method == 'POST':
         user_input = request.form.get('prompt')
         if user_input:
-            # Ensure you have imported ask_legal_question correctly
             response = ask_legal_question(user_input)
             
-            # Save chat history
             new_chat = ChatHistory(query=user_input, response=response, user_id=current_user.id)
             db.session.add(new_chat)
             db.session.commit()
             
             return jsonify({'response': response})
     
-    # For GET request, render the chat.html page
     return render_template('chat.html')
 
 @app.route('/summary')
@@ -145,7 +137,6 @@ def upload():
             flash('The extracted text is empty.', 'danger')
             return render_template('summary.html', error="The extracted text is empty.")
         
-        # Generate the initial summary
         summary_text = summarize_text(extracted_text)
         
         return render_template('summary.html', extracted_text=extracted_text, summary_text=summary_text)
@@ -179,7 +170,6 @@ def chat_api():
 
     return jsonify({'response': 'No input provided.'}), 400
 
-# Ensure uploads directory exists
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
 
