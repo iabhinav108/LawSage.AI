@@ -8,7 +8,7 @@
 
 ## **📜 About LawSage.AI**
 
-**LawSage.AI** is a cutting-edge AI-powered platform designed to simplify and revolutionize the way legal professionals interact with documents. Our goal is to streamline legal workflows with:  
+**LawSage.AI** is a cutting-edge AI-powered platform designed to simplify and revolutionize the way legal professionals interact with documents. This project was developed as an academic coursework project for *Intelligent Model Design using AI*, showcasing advanced AI techniques to streamline legal workflows:  
 - **Document Summarization**: Extract concise summaries of lengthy legal documents.  
 - **Simplified Insights**: Simplify legal jargon for better understanding.  
 - **Legal Research Assistance**: Provide answers and insights tailored to legal queries.  
