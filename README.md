@@ -1,12 +1,12 @@
-# ** LawSage.AI**  
+# **LawSage.AI**  
 **Empowering Legal Professionals with AI-Driven Insights**
 
-![LawSage.AI Banner](https://via.placeholder.com/1000x300?text=LawSage.AI+%7C+AI-Powered+Legal+Assistant)  
+![LawSage.AI Banner](frontend/static/assets/b6e63aac-5718-49be-8a29-6cfc1562f35b.jpg)
  
 
 ---
 
-## ** About LawSage.AI**
+## **About LawSage.AI**
 
 **LawSage.AI** is a cutting-edge AI-powered platform designed to simplify and revolutionize the way legal professionals interact with documents. This project was developed as an academic coursework project for *Intelligent Model Design using AI*, showcasing advanced AI techniques to streamline legal workflows:  
 - **Document Summarization**: Extract concise summaries of lengthy legal documents.  
