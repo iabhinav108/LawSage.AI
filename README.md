@@ -68,7 +68,7 @@ LawSage.AI/ ├── backend/ # Backend logic and APIs ├── frontend/ # Us
 
 ## **Installation & Setup**
 
-1. Clone the repository:
+Clone the repository:
    ```bash
    git clone https://github.com/your-username/LawSage.AI.git
    cd LawSage.AI
