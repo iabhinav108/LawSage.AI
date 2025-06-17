@@ -1,4 +1,4 @@
-# **⚖️ LawSage.AI**  
+# ** LawSage.AI**  
 **Empowering Legal Professionals with AI-Driven Insights**
 
 ![LawSage.AI Banner](https://via.placeholder.com/1000x300?text=LawSage.AI+%7C+AI-Powered+Legal+Assistant)  
@@ -6,7 +6,7 @@
 
 ---
 
-## **📜 About LawSage.AI**
+## ** About LawSage.AI**
 
 **LawSage.AI** is a cutting-edge AI-powered platform designed to simplify and revolutionize the way legal professionals interact with documents. This project was developed as an academic coursework project for *Intelligent Model Design using AI*, showcasing advanced AI techniques to streamline legal workflows:  
 - **Document Summarization**: Extract concise summaries of lengthy legal documents.  
@@ -17,16 +17,16 @@ Whether you're a lawyer, paralegal, or student, **LawSage.AI** is your partner i
 
 ---
 
-## **🚀 Key Features**
-- **📄 Upload & Extract**: Upload legal documents (PDF) and extract text with ease.  
-- **💡 Intelligent Summarization**: Generate summaries using the **Legal-Pegasus** model.  
-- **🔍 Simplification at a Click**: Create simplified summaries with the **LegalBERT-BART** model.  
-- **📚 Research on Demand**: Use advanced legal models like **Indian Legal Assistant** to answer queries and provide structured legal insights.  
-- **🎨 User-Friendly Design**: Modern and intuitive interface built with **Flask** and responsive web technologies.  
+## **Key Features**
+- **Upload & Extract**: Upload legal documents (PDF) and extract text with ease.  
+- **Intelligent Summarization**: Generate summaries using the **Legal-Pegasus** model.  
+- **Simplification at a Click**: Create simplified summaries with the **LegalBERT-BART** model.  
+- **Research on Demand**: Use advanced legal models like **Indian Legal Assistant** to answer queries and provide structured legal insights.  
+- **User-Friendly Design**: Modern and intuitive interface built with **Flask** and responsive web technologies.  
 
 ---
 
-## **🛠️ Tech Stack**
+## **Tech Stack**
 
 | **Technology**      | **Usage**                        |  
 |----------------------|----------------------------------|  
@@ -38,13 +38,13 @@ Whether you're a lawyer, paralegal, or student, **LawSage.AI** is your partner i
 
 ---
 
-## **📂 Folder Structure**
+## **Folder Structure**
 LawSage.AI/ ├── backend/ # Backend logic and APIs ├── frontend/ # User interface │ ├── static/ # Static assets (CSS, JS) │ ├── templates/ # HTML templates ├── models/ # Pretrained AI models ├── data/ # Training datasets └── README.md # Project overview
 
 
 ---
 
-## **🧠 How It Works**
+## **How It Works**
 
 1. **Upload a Document**: Start by uploading a legal document (PDF).  
 2. **Summarization**:  
@@ -54,7 +54,7 @@ LawSage.AI/ ├── backend/ # Backend logic and APIs ├── frontend/ # Us
 
 ---
 
-## **🌐 Models Used**
+## **Models Used**
 
 | **Model Name**                           | **Purpose**                                  |  
 |------------------------------------------|----------------------------------------------|  
@@ -66,7 +66,7 @@ LawSage.AI/ ├── backend/ # Backend logic and APIs ├── frontend/ # Us
 
 ---
 
-## **🛠️ Installation & Setup**
+## **Installation & Setup**
 
 1. Clone the repository:
    ```bash
